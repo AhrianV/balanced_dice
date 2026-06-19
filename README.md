@@ -5,6 +5,6 @@ To run this file follow the steps bellow:
 4) in a git terminal run: pip install flask
 5) in the terminal run: python3 app.py or py app.py if on windows
 6) After completing step 4, something like this should appear in your terminal: Running on http://[some seris of numbers and periods]. Follow that link to run the project locally.
-7) To quit type Ctrl and c in the terminal at the same time
+7) To quit type Ctrl and c in the terminal at the same time (or just kill the terminal)
 
 That's it! Enjoy!
