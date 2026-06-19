@@ -15,7 +15,7 @@
 <body>
     <h1 class="text-center">Welcome to the weighted dice simulator!</h1>
     <div class="container">
-        <div id="diceContainer" class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center">
+        <div id="diceContainer" class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center" style="max-height: 80vh; overflow: hidden;">
             <img class="img-fluid" src="{{ url_for('static', filename='media/dice' ~ d1 ~ '.png') }}" alt="Dice">
             <img class="img-fluid" src="{{ url_for('static', filename='media/dice' ~ d2 ~ '.png') }}" alt="Dice">           
         </div>
