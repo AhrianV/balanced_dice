@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wieghted Dice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 class="text-center">Welcome to the weighted dice simulator!</h1>
+    <div class="container">
+        <div id="diceContainer" class="row row-cols-1 row-cols-lg-2 g-3 d-flex justify-content-center">
+            <img class="img-fluid" src="{{ url_for('static', filename='media/dice' ~ d1 ~ '.png') }}" alt="Dice">
+            <img class="img-fluid" src="{{ url_for('static', filename='media/dice' ~ d2 ~ '.png') }}" alt="Dice">           
+        </div>
+
+        <button id="rollButton" class="btn btn-primary d-block mx-auto">Roll</button>        
+            <div class="d-flex justify-content-center align-items-center vh-90">
+                <video id="diceVideo" width="300" class="w-75 h-auto d-none">
+                    <source src="{{ url_for('static', filename='media/dice_roll.mp4') }}" type="video/mp4">
+                </video>
+            </div>
+
+
+    </div>
+
+    <script>
+        function play_anim(){
+            console.log($("#diceContainer").length);
+            $("#diceContainer").addClass("d-none");
+            $("#diceVideo").removeClass("d-none");
+            let video = $("#diceVideo")[0];
+            video.currentTime = 0;
+            video.play();
+        }
+
+        $("#rollButton").click(play_anim);
+        $("#diceVideo").on("ended", function() {
+        $(this).hide()
+        window.location.href = "/turn";
+        });
+
+    </script>
+
+    </body>
+
+    </html>
